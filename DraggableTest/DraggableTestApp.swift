@@ -12,7 +12,10 @@ import SwiftData
 struct DraggableTestApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            SidebarItem.self,
+            InnerSidebarItem.self,
+            DetailItem.self,
+            InnerDetailItem.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
