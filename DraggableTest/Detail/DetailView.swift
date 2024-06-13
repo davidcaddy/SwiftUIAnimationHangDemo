@@ -36,23 +36,16 @@ struct DetailView: View {
             LazyHStack {
                 ForEach(detailItems) { detailItem in
                     Text(detailItem.title)
-                }
-                
-                Button("Add", systemImage: "plus") {
-                    addItem()
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 8.0)
+                                .fill(.cyan)
+                        }
                 }
             }
+            .padding()
         }
-    }
-}
-
-extension DetailView {
-    
-    private func addItem() {
-        let innerItem = DetailItem(title: "Detail \(item.detailsItems.count)", sortIndex: 0)
-        innerItem.innerSidebarItem = item
-        
-        modelContext.insert(innerItem)
     }
 }
 
