@@ -6,5 +6,7 @@ The main focus of this test app is the sidebar elements, which has a number of c
 
 Tapping the bug button will start the test, and then once each second two of the sidebar cards will swap `sortIndex`s. When the issues occurs isn't consistent, but eventually (usually between 30-120 seconds) the UI will completely freeze.
 
-<a href="https://youtu.be/dbtQewjDoug" target="_blank"><img src="http://img.youtube.com/vi/dbtQewjDoug/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+Given enough time this issue seems to be 100% reproducable with this setup from my testing in simulator on M1 MacBook Pro and physical iPad mini (6th gen).
+
+*YouTube video of SwiftUI Instruments profile run:*
+[![SwiftUI Instuments session](http://img.youtube.com/vi/dbtQewjDoug/0.jpg)](https://youtu.be/dbtQewjDoug)

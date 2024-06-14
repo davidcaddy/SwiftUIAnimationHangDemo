@@ -16,6 +16,9 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             SidebarView(selectedItem: $selectedItem, targetedItem: $targetedItem)
+                .navigationDestination(item: $selectedItem) { item in
+                    DetailView(item: item)
+                }
 #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
 #endif

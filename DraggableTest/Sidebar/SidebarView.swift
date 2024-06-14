@@ -85,10 +85,6 @@ extension SidebarView {
         guard items.count > 1 else {
             return
         }
-        if selectedItem == nil {
-            makeRandomSelection()
-            return
-        }
         
         let randomIndex1 = Int.random(in: 0..<min(3, items.count))
         let randomIndex2 = Int.random(in: 0..<items.count)
