@@ -30,6 +30,7 @@
 		7F9A88CE2C1ACECD00D502B7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7F9A88D02C1B147900D502B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7F9A88D12C1B154400D502B7 /* DropTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropTarget.swift; sourceTree = "<group>"; };
+		7F9A88D32C1C58DF00D502B7 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		7FC5ED302C19CB9B00C4F30F /* SidebarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +48,7 @@
 		7F2032E42BAFE01E00628005 = {
 			isa = PBXGroup;
 			children = (
+				7F9A88D32C1C58DF00D502B7 /* README.markdown */,
 				7F2032EF2BAFE01E00628005 /* DraggableTest */,
 				7F2032EE2BAFE01E00628005 /* Products */,
 			);
@@ -308,6 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DraggableTest/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DraggableTest/Info.plist;
@@ -345,6 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DraggableTest/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DraggableTest/Info.plist;

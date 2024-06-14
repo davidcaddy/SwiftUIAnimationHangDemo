@@ -99,8 +99,8 @@ extension SidebarView {
         let moveItem = items[randomIndex1]
         let targetItem = items[randomIndex2]
         
-        print("Moving sidebar item at index \(randomIndex1) to index \(randomIndex2)")
-        updateSortIndex(forItemWithID: moveItem.persistentModelID, target: targetItem)
+        print("Swap sidebar item at index \(randomIndex1) with item at index \(randomIndex2)")
+        swapSortIndex(ofItem: moveItem, withItem: targetItem)
     }
     
     private func populateData() {
@@ -115,7 +115,7 @@ extension SidebarView {
                 innerSidebarItem.sidebarItem = sidebarItem
                 
                 for k in 0..<10 {
-                    let detailItem = DetailItem(title: "Detail Item \(k)", sortIndex: Int32(10000 + (k * 500)))
+                    let detailItem = DetailItem(title: "Detail Item \(j)-\(k)", sortIndex: Int32(10000 + (k * 500)))
                     modelContext.insert(detailItem)
                     detailItem.innerSidebarItem = innerSidebarItem
                     
@@ -125,6 +125,12 @@ extension SidebarView {
                 }
             }
         }
+    }
+    
+    private func swapSortIndex(ofItem item: SidebarItem, withItem targetItem: SidebarItem) {
+        let index = item.sortIndex
+        item.sortIndex = targetItem.sortIndex
+        targetItem.sortIndex = index
     }
     
     private func updateSortIndex(forItemWithID id: PersistentIdentifier, target: SidebarItem) {

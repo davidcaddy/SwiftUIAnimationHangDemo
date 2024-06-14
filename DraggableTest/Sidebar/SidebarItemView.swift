@@ -58,7 +58,7 @@ struct SidebarItemView: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 8.0)
-                .fill(.cyan)
+                .fill(.teal)
                 .padding(1.0)
         }
     }

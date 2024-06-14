@@ -40,7 +40,7 @@ struct DetailView: View {
                         .padding()
                         .background {
                             RoundedRectangle(cornerRadius: 8.0)
-                                .fill(.cyan)
+                                .fill(.teal)
                         }
                 }
             }
