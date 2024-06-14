@@ -1,5 +1,7 @@
 #  Draggable Test
 
+## Hang Issue
+
 This test app reproduces an issue related to SwiftData, SwiftUI and animations that results in the UI completely locking up.
 
 The main focus of this test app is the sidebar elements, which has a number of card elements each with a `Int32` `sortIndex` parameter. Mock data is populated on first launch.
