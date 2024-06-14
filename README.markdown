@@ -1,6 +1,6 @@
-#  Draggable Test
+# Draggable Test
 
-## Hang Issue
+## Hang Issue (FB13899357)
 
 This test app reproduces an issue related to SwiftData, SwiftUI and animations that results in the UI completely locking up.
 
@@ -12,3 +12,10 @@ Given enough time this issue seems to be 100% reproducable with this setup from 
 
 *YouTube video of SwiftUI Instruments profile run:*
 [![SwiftUI Instuments session](http://img.youtube.com/vi/dbtQewjDoug/0.jpg)](https://youtu.be/dbtQewjDoug)
+
+## Drop Animation Issue (FB13899959)
+
+In iOS/iPadOS 18 seed 1 the drop animation for the draggable sidebar card views is not nearly as nice as that on iOS/iPadOS 17.x, and seems perhaps unintentional.
+
+*YouTube video of showing different animation iPadOS 17.4 vs iPadOS 18 seed 1:*
+[![Draggable Drop Animation](http://img.youtube.com/vi/ElB-7bKf3sw/0.jpg)](https://youtu.be/ElB-7bKf3sw)
