@@ -35,7 +35,7 @@ struct SidebarView: View {
                         .draggable(SidebarItemTransferable(modelID: item.id))
                         .dropDestination(for: SidebarItemTransferable.self) { items, location in
                             if let id = items.last?.modelID {
-                                updateSortIndex(forItemWithID: id, target: item)
+                                swapSortIndex(forItemWithID: id, withTarget: item)
                             }
                             return true
                         } isTargeted: { isTargeted in
@@ -123,57 +123,16 @@ extension SidebarView {
         }
     }
     
+    private func swapSortIndex(forItemWithID id: PersistentIdentifier, withTarget targetItem: SidebarItem) {
+        if let droppedItem = modelContext.model(for: id) as? SidebarItem {
+            swapSortIndex(ofItem: droppedItem, withItem: targetItem)
+        }
+    }
+    
     private func swapSortIndex(ofItem item: SidebarItem, withItem targetItem: SidebarItem) {
         let index = item.sortIndex
         item.sortIndex = targetItem.sortIndex
         targetItem.sortIndex = index
-    }
-    
-    private func updateSortIndex(forItemWithID id: PersistentIdentifier, target: SidebarItem) {
-        if let droppedItem = modelContext.model(for: id) as? SidebarItem {
-            guard let destination = items.firstIndex(of: target) else {
-                return
-            }
-            
-            var newIndex: Int32 = 10000
-            var reIndexRequired = false
-            if items.count > 0 {
-                if destination == 0 {
-                    let firstItem = items[0]
-                    newIndex = Int32(firstItem.sortIndex) / 2
-                    reIndexRequired = newIndex == firstItem.sortIndex
-                }
-                else if destination >= items.count {
-                    if let lastItem = items.last {
-                        if (Int32.max - lastItem.sortIndex) > 500 {
-                            newIndex = Int32(lastItem.sortIndex) + 500
-                        }
-                        else {
-                            newIndex = Int32.max
-                            reIndexRequired = true
-                        }
-                    }
-                }
-                else {
-                    let leadingSortIndex = items[destination - 1].sortIndex
-                    let trailingSortIndex = items[destination].sortIndex
-                    
-                    newIndex = Int32(leadingSortIndex + trailingSortIndex) / 2
-                    reIndexRequired = (newIndex == leadingSortIndex) || (newIndex == trailingSortIndex)
-                }
-            }
-            
-            if reIndexRequired {
-                var index: Int32 = 10000
-                for item in items {
-                    item.sortIndex = Int32(index)
-                    index += 1000
-                }
-            }
-            else {
-                droppedItem.sortIndex = newIndex
-            }
-        }
     }
 }
 

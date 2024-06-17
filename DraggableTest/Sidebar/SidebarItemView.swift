@@ -53,6 +53,15 @@ struct SidebarItemView: View {
             }
             ForEach(item.innerItems.sorted(by: { $0.sortIndex < $1.sortIndex })) { innerItem in
                 InnerItemView(item: innerItem, selectedItem: $selectedItem, targetedItem: $targetedItem)
+                    .draggable(InnerSidebarItemTransferable(modelID: innerItem.id))
+                    .dropDestination(for: InnerSidebarItemTransferable.self) { items, location in
+                        if let id = items.last?.modelID {
+                            swapSortIndex(forItemWithID: id, withTarget: innerItem)
+                        }
+                        return true
+                    } isTargeted: { isTargeted in
+                        targetedItem = isTargeted ? .innerSidebarItem(innerItem) : nil
+                    }
             }
         }
         .padding()
@@ -60,6 +69,17 @@ struct SidebarItemView: View {
             RoundedRectangle(cornerRadius: 8.0)
                 .fill(.teal)
                 .padding(1.0)
+        }
+    }
+}
+
+extension SidebarItemView {
+    
+    private func swapSortIndex(forItemWithID id: PersistentIdentifier, withTarget targetItem: InnerSidebarItem) {
+        if let droppedItem = modelContext.model(for: id) as? InnerSidebarItem {
+            let index = droppedItem.sortIndex
+            droppedItem.sortIndex = targetItem.sortIndex
+            targetItem.sortIndex = index
         }
     }
 }

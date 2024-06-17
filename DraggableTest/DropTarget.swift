@@ -12,6 +12,7 @@ import SwiftData
 
 extension UTType {
     static let sidebarItem = UTType(exportedAs: "com.draggable.test.sidebaritem")
+    static let innerSidebarItem = UTType(exportedAs: "com.draggable.test.innersidebaritem")
 }
 
 struct SidebarItemTransferable: Codable, Transferable {
@@ -19,6 +20,14 @@ struct SidebarItemTransferable: Codable, Transferable {
     
     public static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .sidebarItem)
+    }
+}
+
+struct InnerSidebarItemTransferable: Codable, Transferable {
+    var modelID: PersistentIdentifier
+    
+    public static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .innerSidebarItem)
     }
 }
 

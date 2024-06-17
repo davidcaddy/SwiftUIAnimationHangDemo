@@ -15,7 +15,7 @@ Given enough time this issue seems to be 100% reproducable with this setup from 
 
 ## Drop Animation Issue (FB13899959)
 
-In iOS/iPadOS 18 seed 1 the drop animation for the draggable sidebar card views is not nearly as nice as that on iOS/iPadOS 17.x, and seems perhaps unintentional.
+In iOS/iPadOS 18 Seed 1 the drop animation for the draggable sidebar card views is not nearly as nice as that on iOS/iPadOS 17.x, and seems perhaps unintentional.
 
-*YouTube video of showing different animation iPadOS 17.4 vs iPadOS 18 seed 1:*
+*YouTube video of showing different animation iPadOS 17.4 vs iPadOS 18 Seed 1:*
 [![Draggable Drop Animation](http://img.youtube.com/vi/ElB-7bKf3sw/0.jpg)](https://youtu.be/ElB-7bKf3sw)
